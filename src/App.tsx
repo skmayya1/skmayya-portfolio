@@ -7,6 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import RollingText from "./Components/RrollingText";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
+import Projects from "./Components/Projects";
+import { IoLocationOutline } from "react-icons/io5";
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -83,18 +85,25 @@ const App = () => {
             </div>
             <div ref={ImageDivRef} className="h-full w-full flex flex-col gap-3 items-center justify-center ">
               <img className="h-[30vw] w-[30vw] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
-              <div className="flex gap-5 self-end px-28">
-                <a href="https://github.com/skmayya1"><FaGithub size={30}/></a>
-                <a href="https://x.com/Skmayya1"><FaSquareXTwitter size={30}/></a>
+              <div className="flex items-center justify-between w-full px-28">
+                <div className="flex gap-3">
+                  <IoLocationOutline size={25} />
+                  <span>Karnataka , India</span>
+                </div>
+                <div className="flex gap-5 self-end">
+                  <a href="https://github.com/skmayya1"><FaGithub size={30} /></a>
+                  <a href="https://x.com/Skmayya1"><FaSquareXTwitter size={30} /></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="h-screen w-full">
+      <div className="h-screen w-full flex flex-co items-center flex-col justify-between">
         <RollingText />
+        <Projects />
       </div>
-      <div className="h-screen w-full bg-green-500"></div>
+      <div className="h-screen w-full"></div>
     </div>
   )
 }

@@ -42,3 +42,14 @@ body {
   z-index: 999999;
   
 }
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #FEFEFF ;
+  background: black;
+}
+
+::selection {
+  color: #FEFEFF;
+  background: black;
+}
