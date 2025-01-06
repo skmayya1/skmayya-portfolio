@@ -99,7 +99,7 @@ const App = () => {
     <div>
       <Navbar />
       <div className="flair flair--3 bg-cover overflow-hidden">
-        <img className="" src="/public/79bed6aae8ac9dfd3cc628224b11f417.jpg" alt="" />
+        <img className="" src="/cursor.jpg" alt="" />
       </div>
       <div className="h-screen w-full  items-center justify-evenly">
         <div className="flex items-center justify-evenly h-full w-full flex-col gap-5 px-48">
