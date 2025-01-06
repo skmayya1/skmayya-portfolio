@@ -70,7 +70,7 @@ const App = () => {
       <div className="flair flair--3 bg-cover overflow-hidden">
         <img className="" src="/public/79bed6aae8ac9dfd3cc628224b11f417.jpg" alt="" />
       </div>
-      <div className="h-screen w-full items-center justify-evenly">
+      <div className="h-screen w-full  items-center justify-evenly">
         <div className="flex items-center justify-evenly h-full w-full flex-col gap-5 px-48">
           <div className="section-1 flex w-full h-[70%]">
             <div ref={DivRef} className="h-full w-full flex items-start  justify-center flex-col  px-1 gap-5">
@@ -99,11 +99,11 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="h-screen w-full flex flex-co items-center flex-col justify-between">
+      <div className="h-screen w-full flex  items-center flex-col justify-between">
         <RollingText />
         <Projects />
       </div>
-      <div className="h-screen w-full"></div>
+      <div className="h-screen w-full "></div>
     </div>
   )
 }
