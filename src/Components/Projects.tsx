@@ -35,12 +35,12 @@ const Projects = () => {
 
 
     return (
-        <div className="flex flex-col h-full w-full items-center px-32  justify-between">
-            <div className=" flex items-center w-full h-[88%] ">
+        <div className="flex flex-col h-full w-full items-center px-32 gap-24 pt-28  justify-between">
+            <div className=" flex items-center w-full  ">
                 <h1 ref={TextRef} className="text-6xl flex font-semibold ">PROJECTS</h1>
             </div>
             <div className="w-full h-full  flex flex-col gap-5 items-center text-[2vw] ">
-                <div ref={DivRef} className="h-[5vw] w-[80%] border rounded-lg group transition-all ease-in-out duration-300 hover:h-[13vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
+                <div ref={DivRef} className="h-[5vw] w-[80%] border-t   group transition-all ease-in-out duration-300 hover:h-[13vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
                     <div className="flex w-full h-fit items-center justify-between">
                         <h1>Andhar Bahar Card Game</h1>
                         <div className="flex items-center gap-5">
@@ -59,7 +59,7 @@ const Projects = () => {
                         ))}
                     </div>
                 </div>
-                <div ref={DivRef} className="h-[5vw] w-[80%] border rounded-lg group transition-all ease-in-out duration-300 hover:h-[12vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
+                <div ref={DivRef} className="h-[5vw] w-[80%] border-t group transition-all ease-in-out duration-300 hover:h-[12vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
                     <div className="flex w-full h-fit items-center justify-between">
                         <h1 className="flex gap-3">Global Chat app for <p className="self-end pb-3"><BsTwitterX size={25} /></p>Users</h1>
                         <div className="flex items-center gap-5">
@@ -78,7 +78,7 @@ const Projects = () => {
                         ))}
                     </div>
                 </div>     
-                <div ref={DivRef} className="h-[5vw] w-[80%] border rounded-lg group transition-all ease-in-out duration-300 hover:h-[8vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
+                <div ref={DivRef} className="h-[5vw] w-[80%] border-t border-b  group transition-all ease-in-out duration-300 hover:h-[8vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
                     <div className="flex w-full h-fit items-center justify-between">
                         <h1>AI Based Component Generator</h1>
                         < div className="flex items-center gap-5 border px-2 py-0.5 border-yellow-500 rounded-full bg-yellow-100" >

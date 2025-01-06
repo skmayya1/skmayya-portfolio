@@ -1,5 +1,5 @@
 import Lenis from "lenis";
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Navbar from "./Components/Navbar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -9,11 +9,15 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import Projects from "./Components/Projects";
 import { IoLocationOutline } from "react-icons/io5";
-
+import Skills from "./Components/Skills";
+import { FaRust } from "react-icons/fa";
+import { MdAnimation } from "react-icons/md";
+import Footer from "./Components/Footer";
 
 gsap.registerPlugin(ScrollTrigger)
 const App = () => {
   const { contextSafe } = useGSAP()
+  const [isMobile, setIsMobile] = useState(false);
 
   const DivRef = useRef<HTMLDivElement | null>(null)
   const ImageDivRef = useRef<HTMLDivElement | null>(null)
@@ -34,17 +38,40 @@ const App = () => {
     })
   })
   const ScrollAnimations = contextSafe(() => {
-    
+
   })
+  // Check if mobile
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 1500);
+      console.log(window.innerWidth);
+
+    };
+
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   // Lenis
   useEffect(() => {
     console.log("App mounted")
     const lenis = new Lenis({
+      duration: 2.5, // Increased duration for slower scroll
+      smoothWheel: true, // Enable smooth scrolling for mouse wheel
+      wheelMultiplier: 0.5, // Reduce wheel scroll speed
       autoRaf: true,
     });
-    lenis.on('scroll', (e) => {
-      console.log(e);
+    
+    lenis.on('scroll', () => {
+      // empty callback for now
     });
+
+    return () => {
+      lenis.destroy(); // Cleanup on unmount
+    }
   }, [])
   //Gsap Animation Methods
   useEffect(() => {
@@ -62,7 +89,15 @@ const App = () => {
     }
   }, [TextAnimations, ScrollAnimations])
 
-
+  if (isMobile) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center p-8 text-center">
+        <h1 className="text-2xl font-semibold">
+          This experience is not available on mobile devices. Please visit on a desktop browser.
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -103,7 +138,16 @@ const App = () => {
         <RollingText />
         <Projects />
       </div>
-      <div className="h-screen w-full "></div>
+      <div className="h-screen w-full px-32 py-6 ">
+        <div className="text-6xl flex font-semibold flex-col gap-10">
+          <h1 className="">ABILITIES</h1>
+          <div className="">
+            <Skills />
+          </div>
+          <h1 className="self-center flex items-center md:gap-3">Currently learning  <p className="px-10 text-white py-3 bg-black rounded-lg"><FaRust size={70} color="" /></p> and web animations  <p className="pt-3"><MdAnimation /></p></h1>
+          <Footer />
+        </div>
+      </div>
     </div>
   )
 }
