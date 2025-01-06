@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import RollingText from "./Components/RrollingText";
 
 gsap.registerPlugin(ScrollTrigger)
 const App = () => {
@@ -28,23 +29,7 @@ const App = () => {
     })
   })
   const ScrollAnimations = contextSafe(() => {
-    ScrollTrigger.create({
-      trigger: DivRef.current,
-      start: "80% center",
-      end: "bottom 30%",
-      markers: true,
-      animation: gsap.fromTo(DivRef.current,
-        { y: 0 }, // Initial state
-        { y: 500, duration: 5, ease: "powe4.inOut" }  // Final state
-      ),
-      scrub: true,
-    })
-    ScrollTrigger.create({
-      trigger: ImageDivRef.current,
-      start: "top center",
-      end: "bottom center",
-      animation: gsap.to(ImageDivRef.current, { opacity: 1, y: 0, duration: 3, ease: "power2.out" }),
-    })
+    
   })
   // Lenis
   useEffect(() => {
@@ -81,23 +66,27 @@ const App = () => {
         <img className="" src="/public/79bed6aae8ac9dfd3cc628224b11f417.jpg" alt="" />
       </div>
       <div className="h-screen w-full items-center justify-evenly">
-        <div className="flex items-center justify-evenly h-full w-full  px-48">
-          <div ref={DivRef} className="h-[50%] w-full flex items-start  justify-center flex-col  px-1 gap-5">
-            <div className="text-4xl font-normal ">
-              <h1 >Skanda Mayya</h1>
+        <div className="flex items-center justify-evenly h-full w-full flex-col gap-5 px-48">
+          <div className="section-1 flex w-full h-[70%]">
+            <div ref={DivRef} className="h-full w-full flex items-start  justify-center flex-col  px-1 gap-5">
+              <div className="text-5xl font-normal ">
+                <h1 >Skanda Mayya</h1>
+              </div>
+              <div className="text-lg w-[20vw]">
+                <p ref={ParaRef}>
+                  Turning ideas into reality from front to back, building complete web experiences.
+                </p>
+              </div>
             </div>
-            <div className="text w-[20vw]">
-              <p ref={ParaRef}>
-                Turning ideas into reality from front to back, building complete web experiences.
-              </p>
+            <div ref={ImageDivRef} className="h-full w-full flex items-center justify-center ">
+              <img className="h-[30vw] w-[30vw] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
             </div>
-          </div>
-          <div ref={ImageDivRef} className="h-[80%] w-full flex items-center justify-center ">
-            <img className="h-[30vw] w-[30vw] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
           </div>
         </div>
       </div>
-      <div className="h-screen w-full "></div>
+      <div className="h-screen w-full ">
+        <RollingText />
+      </div>
       <div className="h-screen w-full bg-green-500"></div>
     </div>
   )
