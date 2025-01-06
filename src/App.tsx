@@ -44,8 +44,6 @@ const App = () => {
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 1500);
-      console.log(window.innerWidth);
-
     };
 
     checkIfMobile();
@@ -57,7 +55,6 @@ const App = () => {
 
   // Lenis
   useEffect(() => {
-    console.log("App mounted")
     const lenis = new Lenis({
       duration: 2.5, // Increased duration for slower scroll
       smoothWheel: true, // Enable smooth scrolling for mouse wheel
@@ -85,7 +82,6 @@ const App = () => {
       yTo(e.clientY);
     });
     return () => {
-      console.log("App unmounted")
     }
   }, [TextAnimations, ScrollAnimations])
 
