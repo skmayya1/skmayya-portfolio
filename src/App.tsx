@@ -5,6 +5,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import RollingText from "./Components/RrollingText";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
+
 
 gsap.registerPlugin(ScrollTrigger)
 const App = () => {
@@ -70,7 +73,7 @@ const App = () => {
           <div className="section-1 flex w-full h-[70%]">
             <div ref={DivRef} className="h-full w-full flex items-start  justify-center flex-col  px-1 gap-5">
               <div className="text-5xl font-normal ">
-                <h1 >Skanda Mayya</h1>
+                <h1 >Skanda Mayya </h1>
               </div>
               <div className="text-lg w-[20vw]">
                 <p ref={ParaRef}>
@@ -78,13 +81,17 @@ const App = () => {
                 </p>
               </div>
             </div>
-            <div ref={ImageDivRef} className="h-full w-full flex items-center justify-center ">
+            <div ref={ImageDivRef} className="h-full w-full flex flex-col gap-3 items-center justify-center ">
               <img className="h-[30vw] w-[30vw] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
+              <div className="flex gap-5 self-end px-28">
+                <a href="https://github.com/skmayya1"><FaGithub size={30}/></a>
+                <a href="https://x.com/Skmayya1"><FaSquareXTwitter size={30}/></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="h-screen w-full ">
+      <div className="h-screen w-full">
         <RollingText />
       </div>
       <div className="h-screen w-full bg-green-500"></div>

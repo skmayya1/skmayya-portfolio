@@ -31,7 +31,7 @@ const RollingText: React.FC = () => {
 
     return (
         <div ref={containerRef} className="h-[10vw] w-full flex items-center overflow-hidden bg-black text-[#FEFEFF]">
-            <div ref={textRef} className="flex whitespace-nowrap text-[7vw] font-semibold translate-x-56">
+            <div ref={textRef} className="flex whitespace-nowrap text-[7vw] font-semibold gap-2">
                 {[...Array(2)].map((_, index) => (
                     <div key={index}>
                         {text}
