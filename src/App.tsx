@@ -1,9 +1,10 @@
 import Lenis from "lenis";
-import { useEffect, useRef, useState } from "react"
+import {  useEffect, useRef, useState } from "react"
 import Navbar from "./Components/Navbar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import RollingText from "./Components/RrollingText";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
@@ -14,7 +15,7 @@ import { FaRust } from "react-icons/fa";
 import { MdAnimation } from "react-icons/md";
 import Footer from "./Components/Footer";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const App = () => {
   const { contextSafe } = useGSAP()
   const [isMobile, setIsMobile] = useState(false);
@@ -43,7 +44,7 @@ const App = () => {
   // Check if mobile
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 1500);
+      setIsMobile(window.innerWidth <= 1200);
     };
 
     checkIfMobile();
@@ -52,6 +53,15 @@ const App = () => {
 
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
+
+  const Scrollto = contextSafe(() => {
+    gsap.to(window, {
+      duration: 2.5,
+      scrollTo: { y: 1000 ,autoKill: false},
+      ease: "power1.in",
+    }
+    )
+  })
 
   // Lenis
   useEffect(() => {
@@ -84,8 +94,9 @@ const App = () => {
     return () => {
     }
   }, [TextAnimations, ScrollAnimations])
-
-  if (isMobile) {
+  
+  
+     if (isMobile) {
     return (
       <div className="h-screen w-full flex items-center justify-center p-8 text-center">
         <h1 className="text-2xl font-semibold">
@@ -94,34 +105,35 @@ const App = () => {
       </div>
     );
   }
+   
 
   return (
     <div>
-      <Navbar />
-      <div className="flair flair--3 bg-cover overflow-hidden">
+      <Navbar Scrollto={Scrollto}/>
+{    !isMobile &&  <div  className="flair flair--3 bg-cover overflow-hidden">
         <img className="" src="/cursor.jpg" alt="" />
-      </div>
+      </div>}
       <div className="h-screen w-full  items-center justify-evenly">
-        <div className="flex items-center justify-evenly h-full w-full flex-col gap-5 px-48">
-          <div className="section-1 flex w-full h-[70%]">
-            <div ref={DivRef} className="h-full w-full flex items-start  justify-center flex-col  px-1 gap-5">
+        <div className="flex items-center md:justify-evenly h-full justify-around w-full flex-col gap-5 md:px-48">
+          <div className="section-1 flex md:flex md:flex-row w-full flex-col-reverse h-[30%] gap-5 md:gap-0 md:h-[70%]">
+            <div ref={DivRef} className="h-full w-full flex items-center md:items-start  justify-center flex-col  md:px-1 gap-5">
               <div className="text-5xl font-normal ">
                 <h1 >Skanda Mayya </h1>
               </div>
-              <div className="text-lg w-[20vw]">
+              <div className="text-sm md:text-lg md:w-[20vw] px-11 md:px-0">
                 <p ref={ParaRef}>
                   Turning ideas into reality from front to back, building complete web experiences.
                 </p>
               </div>
             </div>
             <div ref={ImageDivRef} className="h-full w-full flex flex-col gap-3 items-center justify-center ">
-              <img className="h-[30vw] w-[30vw] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
-              <div className="flex items-center justify-between w-full px-28">
+              <img className="md:h-[30vw] md:w-[30vw] h-[20vh] w-[20vh] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
+              <div className="flex md:flex-row md:gap-0 gap-3 flex-col items-center justify-evenly w-full md:px-28">
                 <div className="flex gap-3">
                   <IoLocationOutline size={25} />
                   <span>Karnataka , India</span>
                 </div>
-                <div className="flex gap-5 self-end">
+                <div className="flex gap-5">
                   <a href="https://github.com/skmayya1"><FaGithub size={30} /></a>
                   <a href="https://x.com/Skmayya1"><FaSquareXTwitter size={30} /></a>
                 </div>
