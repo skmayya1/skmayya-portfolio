@@ -128,7 +128,7 @@ const App = () => {
             </div>
             <div ref={ImageDivRef} className="h-full w-full flex flex-col gap-3 items-center justify-center ">
               <img className="md:h-[30vw] md:w-[30vw] h-[20vh] w-[20vh] rounded-lg" src="/d901a7bab6d28696700da387495ca704.jpg" alt="" />
-              <div className="flex md:flex-row md:gap-0 gap-3 flex-col items-center justify-evenly w-full md:px-28">
+              <div className="flex md:flex-row md:gap-0 gap-3 flex-col items-center justify-evenly md:justify-between w-full md:px-28">
                 <div className="flex gap-3">
                   <IoLocationOutline size={25} />
                   <span>Karnataka , India</span>
