@@ -78,15 +78,18 @@ const Projects = () => {
                         ))}
                     </div>
                 </div>     
+
                 <div ref={DivRef} className="h-[5vw] w-[80%] border-t border-b  group transition-all ease-in-out duration-300 hover:h-[8vw] border-zinc-400 flex items-start gap-6 justify-between px-20 py-5 flex-col">
                     <div className="flex w-full h-fit items-center justify-between">
-                        <h1>AI Based Component Generator</h1>
+                        <h1>RepoGallery</h1>
                         < div className="flex items-center gap-5 border px-2 py-0.5 border-yellow-500 rounded-full bg-yellow-100" >
                             <p className="text-base font-light text-yellow-500">Building</p>
+                            <a href="https://github.com/skmayya1/repo-next"><FaGithub size={30} /></a>
+
                         </div >
                     </div>
                     <div className="text-lg h-full w-full font-thin size-0 overflow-hidden group-hover:size-[100%]">
-                        Soon
+                        RepoGallery is a platform where developers can discover open-source projects tailored to their interests
                     </div>
                 </div>     
             </div>
